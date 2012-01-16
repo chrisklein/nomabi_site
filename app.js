@@ -15,7 +15,7 @@ app.configure(function(){
   app.set('view engine', 'ejs');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.compiler({ src: pub, enable: ['sass'] }));
+  app.use(require('stylus').middleware({ src: __dirname + '/public' }));
   app.use(express.static(pub));
   app.use(app.router);
 });
